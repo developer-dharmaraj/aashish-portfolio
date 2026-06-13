@@ -7,9 +7,9 @@ const ITEMS = [
   { name: '', src: '/pngwing.com (1).png' },
   { name: '', src: '/pngwing.com (4).png' },
   { name: '', src: '/pngwing.com.png' },
-  { name: 'Brand Strategy', src: '/logos/strategy.svg' },
-  { name: 'Content Creation', src: '/logos/content.svg' },
-  { name: 'Post-Production', src: '/logos/post.svg' },
+  { name: '', src: '/meta-icon.webp' },
+  { name: '', src: '/google-ads-icon.webp' },
+  { name: '', src: '/blender-icon.webp' },
 ]
 
 const ALL = [...ITEMS, ...ITEMS]

@@ -14,7 +14,6 @@
 
 export type Post = {
   id: string
-  
   cat: string
   platform: 'instagram' | 'youtube' | 'facebook'
   postUrl: string
@@ -93,6 +92,14 @@ export const POSTS: Post[] = [
     platform: 'youtube',
     postUrl: 'https://www.youtube.com/watch?v=7wZzD9bdkAo&t=578s',
     thumb: 'https://res.cloudinary.com/dppcmxdhi/image/upload/v1781340294/7wZzD9bdkAo-SD_encwdy.jpg',
+    aspect: 'landscape',
+  },
+  {
+    id: 'video-002',
+    cat: 'Video Production',
+    platform: 'youtube',
+    postUrl: 'https://www.instagram.com/reel/DXjoW3XiDpC/?utm_source=ig_web_button_share_sheet',
+    thumb: 'https://res.cloudinary.com/dppcmxdhi/image/upload/v1781349351/Image-770_tfa2mp.jpg',
     aspect: 'landscape',
   },
   {

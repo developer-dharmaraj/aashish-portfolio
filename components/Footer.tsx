@@ -2,10 +2,9 @@
 import Link from 'next/link'
 
 const SOCIALS = [
-  { s: 'instagram', href: 'https://instagram.com', label: 'Instagram' },
+  { s: 'instagram', href: 'https://www.instagram.com/ashishpandey._9/?hl=en', label: 'Instagram' },
   { s: 'linkedin', href: 'https://linkedin.com/in/aashishpandeycreative', label: 'LinkedIn' },
-  { s: 'youtube', href: 'https://youtube.com', label: 'YouTube' },
-  { s: 'facebook', href: 'https://facebook.com', label: 'Facebook' },
+  { s: 'youtube', href: 'https://www.youtube.com/@The9thframe', label: 'YouTube' },
 ] as const
 
 function SocialIcon({ type }: { type: (typeof SOCIALS)[number]['s'] }) {
@@ -28,12 +27,6 @@ function SocialIcon({ type }: { type: (typeof SOCIALS)[number]['s'] }) {
       return (
         <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M23.5 6.2a3 3 0 0 0-2.09-2.08C19.54 3.62 12 3.62 12 3.62s-7.51 0-9.39.5A3 3 0 0 0 .52 6.2 31.25 31.25 0 0 0 0 12a31.25 31.25 0 0 0 .52 5.8 3 3 0 0 0 2.09 2.08c1.88.5 9.39.5 9.39.5s7.54 0 9.41-.5a3 3 0 0 0 2.09-2.08A31.25 31.25 0 0 0 24 12a31.25 31.25 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.87 12 9.6 15.6Z" />
-        </svg>
-      )
-    case 'facebook':
-      return (
-        <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.09 24 12.07Z" />
         </svg>
       )
   }
@@ -65,7 +58,7 @@ export default function Footer() {
         <div>
           <h4 className="font-display text-[13px] font-semibold tracking-widest uppercase text-cream mb-6">Navigate</h4>
           <ul className="flex flex-col gap-3.5 list-none">
-            {[{l:'About',h:'/about'},{l:'Work',h:'/work'},{l:'Services',h:'/services'},{l:'Process',h:'/process'},{l:'Contact',h:'/contact'}].map(({l,h})=>(
+            {[{ l: 'About', h: '/about' }, { l: 'Work', h: '/work' }, { l: 'Services', h: '/services' }, { l: 'Process', h: '/process' }, { l: 'Contact', h: '/contact' }].map(({ l, h }) => (
               <li key={h}><Link href={h} className="text-sm text-muted hover:text-cream transition-colors duration-200 no-underline">{l}</Link></li>
             ))}
           </ul>
@@ -74,7 +67,7 @@ export default function Footer() {
         <div>
           <h4 className="font-display text-[13px] font-semibold tracking-widest uppercase text-cream mb-6">Services</h4>
           <ul className="flex flex-col gap-3.5 list-none">
-            {['Video Production','Meta Ads','Google Ads','Content Creation','Brand Identity'].map(s=>(
+            {['Video Production', 'Meta Ads', 'Google Ads', 'Content Creation', 'Brand Identity'].map(s => (
               <li key={s}><Link href="/services" className="text-sm text-muted hover:text-cream transition-colors duration-200 no-underline">{s}</Link></li>
             ))}
           </ul>
@@ -94,7 +87,7 @@ export default function Footer() {
         <p className="text-[13px] text-muted">© 2025 Aashish Pandey. All rights reserved.</p>
         <div className="flex gap-5">
           <Link href="/privacy" className="text-[13px] text-muted hover:text-cream no-underline transition-colors">Privacy Policy</Link>
-          <Link href="/terms"   className="text-[13px] text-muted hover:text-cream no-underline transition-colors">Terms of Use</Link>
+          <Link href="/terms" className="text-[13px] text-muted hover:text-cream no-underline transition-colors">Terms of Use</Link>
         </div>
       </div>
     </footer>
