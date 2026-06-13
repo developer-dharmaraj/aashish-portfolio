@@ -65,7 +65,7 @@ function MiniCard({ post, index }: { post: Post; index: number }) {
       <div className={`relative overflow-hidden ${ASPECT_CLASS[post.aspect]}`}>
         {post.thumb ? (
           <>
-            <img src={post.thumb} alt={post.title}
+            <img src={post.thumb}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
               loading="lazy" />
             <div className="absolute inset-0 bg-black/5 group-hover:bg-black/40 transition-colors duration-300" />
@@ -93,7 +93,7 @@ function MiniCard({ post, index }: { post: Post; index: number }) {
       </div>
       <div className="px-3 pt-2.5 pb-3">
         <span className="text-[9px] font-bold tracking-widest uppercase text-accent block mb-0.5">{post.cat}</span>
-        <p className="font-display text-[12px] font-semibold text-white line-clamp-1 group-hover:text-accent transition-colors">{post.title}</p>
+        {/* <p className="font-display text-[12px] font-semibold text-white line-clamp-1 group-hover:text-accent transition-colors">{post.title}</p> */}
       </div>
     </a>
   )

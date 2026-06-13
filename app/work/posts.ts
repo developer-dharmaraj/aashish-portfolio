@@ -14,6 +14,7 @@
 
 export type Post = {
   id: string
+  
   cat: string
   platform: 'instagram' | 'youtube' | 'facebook'
   postUrl: string
