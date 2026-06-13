@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 export async function POST(request: Request) {
   try {
     const { name, email, company, service, budget, message } = await request.json();
-    
+
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Name, email, and message are strictly required.' },
@@ -23,17 +23,16 @@ export async function POST(request: Request) {
     }
 
     const resend = new Resend(apiKey);
-    
+
     const cleanCompany = company?.trim() || 'Not Specified';
     const cleanService = service?.trim() || 'Not Specified';
     const cleanBudget = budget?.trim() || 'Not Specified';
-    
-    // 💡 Fallback email logic string ke roop me set kiya hai
-    const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || 'work-dharmarajpatidar@gmail.com';
+
+    const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || 'pandeyaashish0501@gmail.com';
 
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: receiverEmail, // <-- Array hata kar direct string pass kiya
+      to: receiverEmail,
       subject: `New Lead: ${name} (${cleanService})`,
       replyTo: email,
       html: `
