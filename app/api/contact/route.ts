@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
+// Next.js ko build time par static check karne se rokne ke liye:
+export const dynamic = 'force-dynamic';
+
 // Resend Instance Initialize karein
 const resend = new Resend(process.env.RESEND_API_KEY);
 
