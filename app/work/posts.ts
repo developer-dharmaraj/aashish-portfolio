@@ -31,6 +31,14 @@ export const POSTS: Post[] = [
     aspect: 'portrait',
   },
   {
+    id: 'reel-008',
+    cat: 'Reels',
+    platform: 'instagram',
+    postUrl: 'https://www.instagram.com/reel/DXeXnQ_is4G/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+    thumb: 'https://res.cloudinary.com/dppcmxdhi/image/upload/v1781350272/Image-844_u9cgg1.jpg',
+    aspect: 'portrait',
+  },
+  {
     id: 'reel-002',
     cat: 'Reels',
     platform: 'instagram',

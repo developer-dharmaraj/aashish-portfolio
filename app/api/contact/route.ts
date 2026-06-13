@@ -4,24 +4,36 @@ import { Resend } from 'resend';
 // Next.js ko build time par static check karne se rokne ke liye:
 export const dynamic = 'force-dynamic';
 
-// Resend Instance Initialize karein
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
     const { name, email, company, service, budget, message } = await request.json();
+    
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Name, email, and message are strictly required.' },
         { status: 400 }
       );
     }
+
+    // 💡 Safe Check: Env variables check karein aur Resend ko safe block me initialize karein
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error('Missing RESEND_API_KEY inside environment variables.');
+      return NextResponse.json({ error: 'Email service configuration missing.' }, { status: 500 });
+    }
+
+    const resend = new Resend(apiKey);
+    
     const cleanCompany = company?.trim() || 'Not Specified';
     const cleanService = service?.trim() || 'Not Specified';
     const cleanBudget = budget?.trim() || 'Not Specified';
+    
+    // 💡 Fallback email logic string ke roop me set kiya hai
+    const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || 'work-dharmarajpatidar@gmail.com';
+
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: [process.env.CONTACT_RECEIVER_EMAIL as string],
+      to: receiverEmail, // <-- Array hata kar direct string pass kiya
       subject: `New Lead: ${name} (${cleanService})`,
       replyTo: email,
       html: `
